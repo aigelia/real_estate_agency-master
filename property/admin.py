@@ -14,6 +14,6 @@ class FlatAdmin(admin.ModelAdmin):
         'town'
     ]
     list_editable = ['new_building']
-    list_filter = ['new_building']
+    list_filter = ['new_building', 'created_at', 'rooms_number', 'active']
 
 admin.site.register(Flat, FlatAdmin)
