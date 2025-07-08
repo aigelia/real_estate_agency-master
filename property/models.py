@@ -2,11 +2,17 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import SET_NULL, CASCADE
 from django.utils import timezone
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Flat(models.Model):
     owner = models.CharField('ФИО владельца', max_length=200)
     owners_phonenumber = models.CharField('Номер владельца', max_length=20)
+    owner_pure_phone = PhoneNumberField(
+        null=True,
+        blank=True,
+        verbose_name='Номер владельца в формате +7XXXXXXXXXX'
+    )
     created_at = models.DateTimeField(
         'Когда создано объявление',
         default=timezone.now,
@@ -57,6 +63,7 @@ class Flat(models.Model):
     new_building = models.BooleanField(null=True, verbose_name='Является ли новостройкой')
     liked_by = models.ManyToManyField(
         User,
+        blank=True,
         related_name="liked_posts",
         verbose_name='Кто лайкнул'
     )
