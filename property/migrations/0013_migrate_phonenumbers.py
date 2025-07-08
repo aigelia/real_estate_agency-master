@@ -26,7 +26,9 @@ def migrate_phonenumbers(apps, schema_editor):
         number = to_python(cleaned_number, region=DEFAULT_REGION)
         if number and number.is_valid():
             flat.owner_pure_phone = number
-            flat.save(update_fields=['owner_pure_phone'])
+        else:
+            flat.owner_pure_phone = None
+        flat.save(update_fields=['owner_pure_phone'])
 
 
 class Migration(migrations.Migration):
