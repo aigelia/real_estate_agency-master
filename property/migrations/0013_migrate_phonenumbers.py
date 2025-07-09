@@ -18,7 +18,7 @@ def clean_phone_number(draft_number):
 
 def migrate_phonenumbers(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
-    for flat in Flat.objects.all():
+    for flat in Flat.objects.iterator():
         draft_number = flat.owners_phonenumber
         cleaned_number = clean_phone_number(draft_number)
         if not cleaned_number:
