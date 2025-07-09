@@ -25,7 +25,7 @@ class FlatAdmin(admin.ModelAdmin):
 
 
 class ComplaintAdmin(admin.ModelAdmin):
-    raw_id_fields = ['complaint_author', 'flat']
+    raw_id_fields = ['author', 'flat']
 
 
 class OwnerAdmin(admin.ModelAdmin):

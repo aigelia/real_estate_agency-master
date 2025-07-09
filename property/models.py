@@ -76,8 +76,17 @@ class Flat(models.Model):
 
 
 class Complaint(models.Model):
-    complaint_author = models.ForeignKey(User, on_delete=SET_NULL, null=True)
-    flat = models.ForeignKey(Flat, on_delete=CASCADE)
+    author = models.ForeignKey(
+        User,
+        on_delete=SET_NULL,
+        null=True,
+        related_name='complaints',
+    )
+    flat = models.ForeignKey(
+        Flat,
+        on_delete=CASCADE,
+        related_name='complaints',
+    )
     complaint_text = models.TextField(max_length=2000)
 
     def __str__(self):
