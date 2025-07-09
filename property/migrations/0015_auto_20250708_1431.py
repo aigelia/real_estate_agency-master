@@ -19,6 +19,7 @@ def reverse_move_data_to_owner(apps, schema_editor):
     Owner = apps.get_model('property', 'Owner')
     Owner.objects.all().delete()
 
+
 class Migration(migrations.Migration):
 
     dependencies = [

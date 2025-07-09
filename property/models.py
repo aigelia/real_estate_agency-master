@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
-from django.db.models import SET_NULL, CASCADE
+from django.db.models import SET_NULL, CASCADE, BooleanField
 from django.utils import timezone
 from phonenumber_field.modelfields import PhoneNumberField
 
