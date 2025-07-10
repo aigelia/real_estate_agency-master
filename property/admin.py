@@ -9,7 +9,7 @@ class FlatsInstanceInline(admin.TabularInline):
 
 
 class FlatAdmin(admin.ModelAdmin):
-    search_fields = ('town', 'address', 'owner')
+    search_fields = ('town', 'address')
     readonly_fields = ['created_at']
     list_display = [
         'address',
