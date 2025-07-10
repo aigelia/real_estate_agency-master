@@ -58,11 +58,11 @@ class Flat(models.Model):
         db_index=True,
         verbose_name='Является ли новостройкой'
     )
-    liked_by = models.ManyToManyField(
+    likes = models.ManyToManyField(
         User,
         blank=True,
         related_name="liked",
-        verbose_name='Кто лайкнул'
+        verbose_name='Количество лайков'
     )
 
     def __str__(self):

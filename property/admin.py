@@ -20,7 +20,7 @@ class FlatAdmin(admin.ModelAdmin):
     ]
     list_editable = ['new_building']
     list_filter = ['new_building', 'created_at', 'rooms_number', 'active']
-    raw_id_fields = ['liked_by']
+    raw_id_fields = ['likes']
     inlines = [FlatsInstanceInline]
 
 
